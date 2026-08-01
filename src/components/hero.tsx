@@ -49,7 +49,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              ESTABLISHED 2006 • NIGERIA
+              CALLED TO THE BAR • 1999
             </motion.span>
           </motion.div>
 
