@@ -3,7 +3,7 @@
 import { CheckCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,7 +46,7 @@ export default function About() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
