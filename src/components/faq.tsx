@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 export default function FAQ() {
   const [isVisible, setIsVisible] = useState(false);
@@ -64,7 +64,7 @@ export default function FAQ() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
