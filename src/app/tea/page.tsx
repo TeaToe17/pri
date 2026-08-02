@@ -47,7 +47,7 @@ export default function PortfolioPage() {
               Full-Stack Developer | Django Backend Specialist
             </p>
             <p className="text-lg text-gray-600">
-              Building Jale e-Commerce Platform 
+              Building Jale e-Commerce Platform
             </p>
           </motion.div>
 
@@ -56,14 +56,14 @@ export default function PortfolioPage() {
             variants={itemVariants}
             className="grid md:grid-cols-3 gap-8 mb-16"
           >
-            <div className="md:col-span-1">
+            <div className="flex justify-center md:col-span-1">
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
               >
                 <Image
-                  src="/portfoliodp.png"
+                  src="/tea.jpg"
                   alt="Albert Titobiloluwa Israel"
                   width={300}
                   height={400}
