@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Lora } from "next/font/google";
+import { Tangerine } from "next/font/google";
 import "./globals.css";
+
+const tangerine = Tangerine({ weight: "700", subsets: ["latin"] });
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const lora = Lora({ subsets: ["latin"] });
@@ -33,6 +36,11 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         className={`${playfair.className} antialiased bg-background text-foreground`}
+        style={
+          {
+            "--font-cursive": tangerine.style.fontFamily,
+          } as React.CSSProperties
+        }
       >
         {children}
       </body>

@@ -199,11 +199,18 @@ export default function Footer() {
               ))}
               <span className="text-primary-foreground/30">•</span>
               <motion.a
-                href="/tea"
-                className="text-primary-foreground/60 hover:text-accent transition-colors"
-                whileHover={{ textDecoration: "underline" }}
+                href="/letter"
+                className="text-red-500 hover:text-red-400 transition-colors"
+                style={{
+                  fontFamily: "var(--font-cursive)",
+                  fontSize: "1.5rem",
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  textShadow: "0 0 8px rgba(239, 68, 68, 0.5)",
+                }}
               >
-                Built by Tea
+                with love from Teatoe
               </motion.a>
             </div>
           </motion.div>
