@@ -36,7 +36,7 @@ export default function Footer() {
     },
   };
 
-  const itemVariants : Variants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -183,7 +183,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Olurotimi Paul Idowu. All rights
               reserved.
             </p>
-            <div className="flex gap-6">
+            <div className="flex gap-6 items-center">
               {[
                 { href: "#", label: "Privacy Policy" },
                 { href: "#", label: "Terms of Service" },
@@ -197,6 +197,14 @@ export default function Footer() {
                   {link.label}
                 </motion.a>
               ))}
+              <span className="text-primary-foreground/30">•</span>
+              <motion.a
+                href="/tea"
+                className="text-primary-foreground/60 hover:text-accent transition-colors"
+                whileHover={{ textDecoration: "underline" }}
+              >
+                Built by Tea
+              </motion.a>
             </div>
           </motion.div>
         </motion.div>
