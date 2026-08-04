@@ -64,7 +64,7 @@ export default function Footer() {
               Rotimi Paul Idowu
             </motion.h3>
             <p className="text-primary-foreground/70 text-sm">
-              Trial Lawyer | Legal Strategist | 18+ Years Experience
+              Trial Lawyer | Legal Strategist | 27+ Years Experience
             </p>
           </motion.div>
 
