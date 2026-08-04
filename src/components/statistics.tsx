@@ -1,42 +1,42 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 interface StatProps {
-  value: string
-  label: string
-  isVisible: boolean
-  delay: number
+  value: string;
+  label: string;
+  isVisible: boolean;
+  delay: number;
 }
 
 function StatCounter({ value, label, isVisible, delay }: StatProps) {
-  const [displayValue, setDisplayValue] = useState('0')
+  const [displayValue, setDisplayValue] = useState("0");
 
   useEffect(() => {
-    if (!isVisible) return
+    if (!isVisible) return;
 
     const timer = setTimeout(() => {
-      const numStr = value.replace(/[^0-9]/g, '')
-      const num = parseInt(numStr, 10)
+      const numStr = value.replace(/[^0-9]/g, "");
+      const num = parseInt(numStr, 10);
 
-      let current = 0
-      const increment = Math.ceil(num / 50)
+      let current = 0;
+      const increment = Math.ceil(num / 50);
       const interval = setInterval(() => {
-        current += increment
+        current += increment;
         if (current >= num) {
-          setDisplayValue(value)
-          clearInterval(interval)
+          setDisplayValue(value);
+          clearInterval(interval);
         } else {
-          setDisplayValue(current.toString())
+          setDisplayValue(current.toString());
         }
-      }, 30)
+      }, 30);
 
-      return () => clearInterval(interval)
-    }, delay)
+      return () => clearInterval(interval);
+    }, delay);
 
-    return () => clearTimeout(timer)
-  }, [isVisible, value, delay])
+    return () => clearTimeout(timer);
+  }, [isVisible, value, delay]);
 
   return (
     <motion.div
@@ -66,39 +66,42 @@ function StatCounter({ value, label, isVisible, delay }: StatProps) {
         {label}
       </motion.p>
     </motion.div>
-  )
+  );
 }
 
 export default function Statistics() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
-    )
+      { threshold: 0.3 },
+    );
 
-    const section = document.getElementById('statistics')
-    if (section) observer.observe(section)
+    const section = document.getElementById("statistics");
+    if (section) observer.observe(section);
 
     return () => {
-      if (section) observer.unobserve(section)
-    }
-  }, [])
+      if (section) observer.unobserve(section);
+    };
+  }, []);
 
   const stats = [
-    { value: '400+', label: 'Cases Successfully Managed' },
-    { value: '18+', label: 'Years of Practice' },
-    { value: '95%', label: 'Win Rate' },
-    { value: '£500M+', label: 'Total Value Recovered' },
-  ]
+    { value: "400+", label: "Cases Successfully Managed" },
+    { value: "27+", label: "Years of Practice" },
+    { value: "95%", label: "Win Rate" },
+    { value: "£500M+", label: "Total Value Recovered" },
+  ];
 
   return (
-    <section id="statistics" className="py-20 bg-gradient-to-r from-primary/5 to-accent/5">
+    <section
+      id="statistics"
+      className="py-20 bg-gradient-to-r from-primary/5 to-accent/5"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-12"
@@ -119,5 +122,5 @@ export default function Statistics() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

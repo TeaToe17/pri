@@ -126,7 +126,7 @@ export default function Hero() {
           >
             {[
               { value: "400+", label: "Cases Managed" },
-              { value: "18+", label: "Years Experience" },
+              { value: "27+", label: "Years Experience" },
               { value: "20+", label: "Awards Won" },
             ].map((stat, i) => (
               <motion.div

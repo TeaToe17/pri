@@ -11,7 +11,7 @@ const lora = Lora({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Rotimi Paul Idowu | Trial Lawyer & Litigation Expert",
   description:
-    "Distinguished trial lawyer with 18+ years of experience managing 400+ litigation cases, specializing in complex corporate litigation, intellectual property, and strategic negotiations.",
+    "Distinguished trial lawyer with 27+ years of experience managing 400+ litigation cases, specializing in complex corporate litigation, intellectual property, and strategic negotiations.",
   generator: "Teatoe",
   icons: {
     icon: "/RP.png",

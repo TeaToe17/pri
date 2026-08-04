@@ -27,7 +27,7 @@ export default function About() {
   }, []);
 
   const highlights = [
-    " 18 years of litigation experience",
+    " 27 years of litigation experience",
     "400+ complex cases managed",
     "Expertise in corporate litigation",
     "Intellectual property specialization",
