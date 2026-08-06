@@ -29,9 +29,8 @@ export default function About() {
   const highlights = [
     " 27 years of litigation experience",
     "400+ complex cases managed",
-    "Expertise in corporate litigation",
-    "Intellectual property specialization",
-    "Private equity advisory",
+    "Expertise in corporate law",
+    "Experience in legal transactions",
     "Strategic negotiations",
   ];
 

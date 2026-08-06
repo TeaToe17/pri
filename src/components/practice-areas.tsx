@@ -32,16 +32,10 @@ export default function PracticeAreas() {
         "Complex multi-party disputes, shareholder conflicts, and commercial contract enforcement requiring strategic navigation.",
     },
     {
-      icon: "💡",
-      title: "Intellectual Property",
+      icon: "📜",
+      title: "Transactional Experience",
       description:
-        "Patent disputes, trademark protection, and technology-related litigation with focus on innovation and protection.",
-    },
-    {
-      icon: "📊",
-      title: "Private Equity Advisory",
-      description:
-        "Strategic counsel for PE transactions, due diligence support, and portfolio company governance matters.",
+        "Structuring complex mergers, cross-border acquisitions, corporate restructuring, and high-value commercial agreements from inception to closing.",
     },
     {
       icon: "🤝",
@@ -109,7 +103,7 @@ export default function PracticeAreas() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:flex gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
