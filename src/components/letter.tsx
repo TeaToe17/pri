@@ -1,13 +1,18 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Tangerine, Lora, Crimson_Text } from 'next/font/google'
+import { motion } from "framer-motion";
+import { Tangerine, Lora, Crimson_Text } from "next/font/google";
+import { ArrowLeft, ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const tangerine = Tangerine({ weight: '700', subsets: ['latin'] })
-const lora = Lora({ subsets: ['latin'] })
-const crimsonText = Crimson_Text({ weight: '400', subsets: ['latin'] })
+const tangerine = Tangerine({ weight: "700", subsets: ["latin"] });
+const lora = Lora({ subsets: ["latin"] });
+const crimsonText = Crimson_Text({ weight: "400", subsets: ["latin"] });
 
 export default function Letter() {
+  const [showScrollHint, setShowScrollHint] = useState(true);
+
   const letterContent = `Some people enter your life and leave footprints that time can never erase. They become more than mentors, more than guides, and more than supporters. They become pillars. They become family in every way that truly matters.
 
 You are that person to me.
@@ -56,10 +61,38 @@ And thank you, most importantly, for simply being the incredible person that you
 
 Happy Birthday.
 
-May this new chapter bring you even greater joy, deeper peace, and countless reminders of how deeply loved and appreciated you truly are.`
+May this new chapter bring you even greater joy, deeper peace, and countless reminders of how deeply loved and appreciated you truly are.`;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowScrollHint(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-red-50 py-12 px-4 md:px-8">
+      {/* Back navigation */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-3xl mx-auto mb-8"
+      >
+        <Link href="/">
+          <motion.button
+            whileHover={{ x: -4 }}
+            className="flex items-center gap-2 text-red-500 hover:text-red-600 transition-colors text-sm font-medium"
+          >
+            <ArrowLeft size={16} />
+            Back to Portfolio
+          </motion.button>
+        </Link>
+      </motion.div>
       {/* Decorative top element */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -67,7 +100,10 @@ May this new chapter bring you even greater joy, deeper peace, and countless rem
         transition={{ duration: 0.8 }}
         className="text-center mb-12 mt-8"
       >
-        <div className="text-6xl md:text-7xl text-red-500 opacity-20 mb-4" style={{ fontFamily: tangerine.style.fontFamily }}>
+        <div
+          className="text-6xl md:text-7xl text-red-500 opacity-20 mb-4"
+          style={{ fontFamily: tangerine.style.fontFamily }}
+        >
           ✦
         </div>
       </motion.div>
@@ -84,13 +120,14 @@ May this new chapter bring you even greater joy, deeper peace, and countless rem
           className="space-y-4 md:space-y-6 text-gray-800 leading-relaxed"
           style={{ fontFamily: lora.style.fontFamily }}
         >
-          {letterContent.split('\n\n').map((paragraph, index) => (
+          {letterContent.split("\n\n").map((paragraph, index) => (
             <motion.p
               key={index}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 + index * 0.05 }}
-              className="text-base md:text-lg text-justify first-letter:ml-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="text-base md:text-lg text-justify first-letter:ml-8 leading-8"
             >
               {paragraph}
             </motion.p>
@@ -104,10 +141,15 @@ May this new chapter bring you even greater joy, deeper peace, and countless rem
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-12 md:mt-16 pt-8 border-t-2 border-red-200"
         >
-          <p className="text-sm text-gray-600 mb-6 italic">With profound gratitude, admiration, and respect,</p>
-          
+          <p className="text-sm text-gray-600 mb-6 italic">
+            With profound gratitude, admiration, and respect,
+          </p>
+
           <div className="mb-8">
-            <p className="text-5xl md:text-6xl text-red-500 font-light" style={{ fontFamily: tangerine.style.fontFamily }}>
+            <p
+              className="text-5xl md:text-6xl text-red-500 font-light"
+              style={{ fontFamily: tangerine.style.fontFamily }}
+            >
               Teatoe
             </p>
           </div>
@@ -122,14 +164,56 @@ May this new chapter bring you even greater joy, deeper peace, and countless rem
       {/* Decorative bottom element */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
         className="text-center mt-12"
       >
-        <div className="text-4xl text-red-500 opacity-20" style={{ fontFamily: tangerine.style.fontFamily }}>
+        <div
+          className="text-4xl text-red-500 opacity-20"
+          style={{ fontFamily: tangerine.style.fontFamily }}
+        >
           ✦
         </div>
       </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="fixed bottom-8 left-1/2 transform -translate-x-1/2"
+        opacity={showScrollHint ? 1 : 0}
+        style={{ pointerEvents: "none", transition: "opacity 0.3s ease" }}
+      >
+        <div className="text-center">
+          <p className="text-xs text-red-500/60 mb-2 uppercase tracking-widest">
+            Scroll to read
+          </p>
+          <ChevronDown size={20} className="text-red-500/60 mx-auto" />
+        </div>
+      </motion.div>
+
+      {/* Back to top button (fixed, bottom right) */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{
+          opacity: showScrollHint ? 0 : 1,
+          y: showScrollHint ? 20 : 0,
+        }}
+        transition={{ duration: 0.3 }}
+        className="fixed bottom-8 right-8"
+        style={{ pointerEvents: showScrollHint ? "none" : "auto" }}
+      >
+        <Link href="/">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="p-3 bg-red-500/10 hover:bg-red-500/20 rounded-full border border-red-500/30 hover:border-red-500/50 transition-all"
+          >
+            <ArrowLeft size={18} className="text-red-500" />
+          </motion.button>
+        </Link>
+      </motion.div>
     </div>
-  )
+  );
 }
