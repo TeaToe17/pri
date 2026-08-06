@@ -182,8 +182,11 @@ May this new chapter bring you even greater joy, deeper peace, and countless rem
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
         className="fixed bottom-8 left-1/2 transform -translate-x-1/2"
-        opacity={showScrollHint ? 1 : 0}
-        style={{ pointerEvents: "none", transition: "opacity 0.3s ease" }}
+        style={{
+          pointerEvents: "none",
+          transition: "opacity 0.3s ease",
+          opacity: showScrollHint ? 1 : 0, // Moved here
+        }}
       >
         <div className="text-center">
           <p className="text-xs text-red-500/60 mb-2 uppercase tracking-widest">
