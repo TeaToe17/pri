@@ -40,7 +40,7 @@ export default function FAQ() {
       a: "Over 400+ managed cases, I maintain a 95% favorable outcome rate. This reflects both successful trial results and favorable settlements. I focus on results that serve my clients' long-term business interests, not just short-term litigation victories.",
     },
     {
-      q: "Do you handle matters outside the ?",
+      q: "Do you handle matters outside Nigeria?",
       a: "Yes. I have extensive experience with cross-border disputes and maintain relationships with leading law firms globally. I frequently coordinate multi-jurisdictional litigation and international negotiations.",
     },
     {
